@@ -1,0 +1,14 @@
+
+
+html *
+{
+   font-size: 1em !important;
+   color: #000 !important;
+   font-family: "Gill Sans", sans-serif !important;
+   background-color:GhostWhite !important;
+}
+
+.header {
+   font-size: 20px;
+   text-align: center;
+}
