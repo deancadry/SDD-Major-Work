@@ -7,7 +7,6 @@
 
 <link rel="stylesheet" href="css/login_page.css">
 
-
 <form action="home.html" method="post">
   <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -15,6 +14,48 @@
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <script>
+      // Function to validate the username and password
+function validate() {
+    var inputUsername = document.getElementsByName('uname')[0].value;
+    var inputPassword = document.getElementsByName('psw')[0].value;
+
+    // Check if username is empty
+    if(inputUsername.trim() === "") {
+        alert("Username cannot be empty");
+        return false;
+    }
+
+    // Check if password is empty
+    if(inputPassword.trim() === "") {
+        alert("Password cannot be empty");
+        return false;
+    }
+
+    // Check if username and password match predefined values
+    if(inputUsername == "admin" && inputPassword == "password") {
+        alert("Login successful");
+        window.location = "home.html"; // Redirect to home page
+    } else {
+        alert("Login failed");
+    }
+
+    return true;
+}
+
+// Attach the validate function to the form submit event
+document.getElementsByTagName('form')[0].onsubmit = function(e) {
+    e.preventDefault(); // Prevent the form from being submitted
+    if(validate()) {
+        // If validation is successful, submit the form
+        this.submit();
+    }
+}
+
+
+
+    </script>
 
     <a href="home.html>
         <button type="submit">Login</button>
