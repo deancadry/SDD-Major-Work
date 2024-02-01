@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Tax Calculator - Login </title>
 </head>
 
 <link rel="stylesheet" href="css/login_page.css">
 
-<form action="home.html" method="post">
+<form action="home.html" method="post" onsubmit="return validate()">
   <div class="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
@@ -15,61 +16,43 @@
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
+    <button type="submit">Login</button>
+
     <script>
       // Function to validate the username and password
-function validate() {
-    var inputUsername = document.getElementsByName('uname')[0].value;
-    var inputPassword = document.getElementsByName('psw')[0].value;
+      function validate() {
+        var inputUsername = document.getElementsByName("uname")[0].value;
+        var inputPassword = document.getElementsByName("psw")[0].value;
 
-    // Check if username is empty
-    if(inputUsername.trim() === "") {
-        alert("Username cannot be empty");
-        return false;
-    }
+        // Check if username is empty
+        if(inputUsername.trim() === "") {
+            alert("Username cannot be empty");
+            window.location = "login_page.html"; // Redirect to login page
+            return false;
+        }
 
-    // Check if password is empty
-    if(inputPassword.trim() === "") {
-        alert("Password cannot be empty");
-        return false;
-    }
+        // Check if password is empty
+        if(inputPassword.trim() === "") {
+            alert("Password cannot be empty");
+            window.location = "login_page.html"; // Redirect to login page
+            return false;
+        } 
 
-    // Check if username and password match predefined values
-    if(inputUsername == "admin" && inputPassword == "password") {
-        alert("Login successful");
-        window.location = "home.html"; // Redirect to home page
-    } else {
-        alert("Login failed");
-    }
+        // Check if username and password match predefined values
+        if(inputUsername == "admin" && inputPassword == "password") {
+            alert("Login successful");
+            window.location = "home.html"; // Redirect to home page
+            return true;
 
-    return true;
-}
+        } else {
+            alert("Login failed");
+            window.location = "login_page.html"; // Redirect to login page  
+            return false
+        }
 
-// Attach the validate function to the form submit event
-document.getElementsByTagName('form')[0].onsubmit = function(e) {
-    e.preventDefault(); // Prevent the form from being submitted
-    if(validate()) {
-        // If validation is successful, submit the form
-        this.submit();
-    }
-}
-
-
-
+      }
     </script>
-
-    <a href="home.html>
-        <button type="submit">Login</button>
-    </a>
-
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
   </div>
 </form>
 
-<span class="forgotpassword"> <a href = "forgot_password.html"> Forgot your Password?</a> </span>
-    
-  
-
-
-  </html>
+</html>
