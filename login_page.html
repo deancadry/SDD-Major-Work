@@ -21,22 +21,35 @@
     <script>
       // Function to validate the username and password
       function validate() {
-        var inputUsername = document.getElementsByName("uname")[0].value;
-        var inputPassword = document.getElementsByName("psw")[0].value;
+        var inputUsername
+        var inputPassword
+        inputUsername = document.getElementsByName("uname")[0].value;
+        inputPassword = document.getElementsByName("psw")[0].value;
 
-        // Check if username is empty
+        // Check if username is empty&  checks if the password meets the parameters
         if(inputUsername.trim() === "") {
             alert("Username cannot be empty");
             window.location = "login_page.html"; // Redirect to login page
             return false;
         }
+        if(inputUsername.length <= 4) {
+            alert("Username must have more than 4 letters");
+            window.location = "login_page.html"; // Redirect to login page
+            return false;
+        }
 
-        // Check if password is empty
+
+        // Check if password is empty &  checks if the password meets the parameters
         if(inputPassword.trim() === "") {
             alert("Password cannot be empty");
             window.location = "login_page.html"; // Redirect to login page
             return false;
         } 
+        if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)) {
+            alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
+            window.location = "login_page.html"; // Redirect to login page
+            return false;
+        }
 
         // Check if username and password match predefined values
         if(inputUsername == "admin" && inputPassword == "password") {

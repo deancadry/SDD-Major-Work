@@ -9,36 +9,73 @@
 
 
 <form action="home.html" method="post">
-<div class="container">
+    <div class="username">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+    </div>
 
-    <script> 
-        var uname
-        var psw
-        var tel
-        var email
+    <div class="password">
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+    </div>
     
-    </script>
+    <div class="phonenumber">
+        <label for="phonenum"><b>Phone Number</b></label>
+        <input type="tel" placeholder="041234578" name="phonenum" required>
+    </div>
+
+    <div class="email">
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="name@gmail.com" name="email" required>
+    </div>
+
+        <a href="home.html">
+            <button type="submit">Sign Up</button>
+        </a>
 
 
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+        <script>
+            // Create variables to store the input values
+            var inputUsername;
+            var inputPassword;
+            var inputPhone;
+            var inputEmail;
 
+            // Store the input values in the variables
+            inputUsername = document.getElementsByName("uname")[0].value;
+            inputPassword = document.getElementsByName("psw")[0].value;
+            inputPhone = document.getElementsByName("phonenum")[0].value;
+            inputEmail = document.getElementsByName("email")[0].value;
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+            // Check if username has more than 4 letters
+            if (inputUsername.length <= 4) {
+                alert("Username must have more than 4 letters");
+                window.location = "login_page.html"; // Redirect to login page
+                return false;
+            }
 
-    <label for="phonenum"><b>Phone Number</b></label>
-    <input type="tel" placeholder="0400 000 000" name="phonenum" required>
+            // Check if password meets the criteria
+            if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)) {
+                alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
+                window.location = "login_page.html"; // Redirect to login page
+                return false;
+            }
 
-    <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="name@gmail.com" name="email" required>
+            // Check if PhoneNum is empty
+            if (inputPhone.length() = 10 || /\s/.test(inputPhone) || /-/.test(inputPhone)){
+                alert("Phone Number must be 10 numbers, no spaces or dashes");
+                window.location = "login_page.html"; // Redirect to login page
+                return false;
+            }
 
-    <a href="home.html">
-    <button type="submit">Sign Up</button>
-    </a>
-  </div>
- </form>
+            // Check if Email is empty
+            if (inputEmail.trim() === "" || !inputEmail.includes("@") || !inputEmail.includes(".")) {
+                alert("Invalid email address");
+                window.location = "login_page.html"; // Redirect to login page
+                return false;
+            }
+        </script>
+</form>
 
- 
+</html>
 
-  </html>
