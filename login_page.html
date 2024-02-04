@@ -33,7 +33,7 @@
             return false;
         }
         if(inputUsername.length <= 4) {
-            alert("Username must have more than 4 letters");
+            alert("Username must have 4 or more letters");
             window.location = "login_page.html"; // Redirect to login page
             return false;
         }
@@ -52,7 +52,7 @@
         }
 
         // Check if username and password match predefined values
-        if(inputUsername == "admin" && inputPassword == "password") {
+        if(inputUsername == "admin" && inputPassword == "Password1") {
             alert("Login successful");
             window.location = "home.html"; // Redirect to home page
             return true;
@@ -67,5 +67,4 @@
     </script>
   </div>
 </form>
-
 </html>

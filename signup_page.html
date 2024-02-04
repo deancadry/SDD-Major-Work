@@ -1,81 +1,129 @@
 <!DOCTYPE html>
-<html>
-
-<link rel="stylesheet" href="css/signup_page.css">
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <Title> Tax Calculator - Sign Up</Title>
 </head>
 
+<link rel="stylesheet" href="css/signup_page.css">
 
-<form action="home.html" method="post">
-    <div class="username">
+<form action="home.html" method="post" onsubmit="return test()">
+    <div class="container">
         <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-    </div>
+        <input type="text" placeholder="Enter Username" name="uname" required/>
 
-    <div class="password">
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-    </div>
+        <input type="password" placeholder="Enter Password" name="psw" required/>
     
-    <div class="phonenumber">
+    
+    
         <label for="phonenum"><b>Phone Number</b></label>
-        <input type="tel" placeholder="041234578" name="phonenum" required>
-    </div>
+        <input type="tel" placeholder="041234578" name="phonenum"  maxlength = "10" required/>
+    
 
-    <div class="email">
+    
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="name@gmail.com" name="email" required>
-    </div>
+        <input type="email" placeholder="name@gmail.com" name="email" required/>
 
-        <a href="home.html">
+
             <button type="submit">Sign Up</button>
-        </a>
+ 
+            <script>
+            function test() {
+                // Declaring variables, outside of the function so that console.log can access them
+                var inputUsername;
+                var inputPassword;
+                var inputPhone;
+                var inputEmail;
+                var userId;
+                unameValid = true;
+                pwordValid = true; 
+                phoneValid = true;
+                emailValid = true;  
+                
+                  // Get the input values
+                    inputUsername = document.getElementsByName("uname")[0].value;
+                    inputPassword = document.getElementsByName("psw")[0].value;
+                    inputPhone = document.getElementsByName("phonenum")[0].value;
+                    inputEmail = document.getElementsByName("email")[0].value;
+                  //Generate unique ID for the new user
+                userId = Math.floor(Math.random() * 1000000);
 
+        
 
-        <script>
-            // Create variables to store the input values
-            var inputUsername;
-            var inputPassword;
-            var inputPhone;
-            var inputEmail;
-
-            // Store the input values in the variables
-            inputUsername = document.getElementsByName("uname")[0].value;
-            inputPassword = document.getElementsByName("psw")[0].value;
-            inputPhone = document.getElementsByName("phonenum")[0].value;
-            inputEmail = document.getElementsByName("email")[0].value;
 
             // Check if username has more than 4 letters
-            if (inputUsername.length <= 4) {
-                alert("Username must have more than 4 letters");
-                window.location = "login_page.html"; // Redirect to login page
+            if (inputUsername.length <= 3) {
+                alert("Username must have 4 or more letters");
+                console.log(invalidUsername);
+                window.location = "signup_page.html"; // Redirect to back to sign up page
                 return false;
+                unameValid = false;
             }
 
             // Check if password meets the criteria
-            if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)) {
-                alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
-                window.location = "login_page.html"; // Redirect to login page
-                return false;
+             if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)){
+                 alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
+                 window.location = "signup_page.html"; // Redirect to back to sign up page
+                 return false;
+                 pwordValid = false;
+             }
+
+            // Check if PhoneNum is meets the cirtieria 
+             if ((/\s/).test(inputPhone) || /-/.test(inputPhone)) { 
+                 alert("Phone Number must be 10 numbers, no spaces or dashes");
+                window.location = "signup_page.html"; // Redirect to back to sign up page
+                 phoneValid = false;
+                 return false;
             }
 
-            // Check if PhoneNum is empty
-            if (inputPhone.length() = 10 || /\s/.test(inputPhone) || /-/.test(inputPhone)){
-                alert("Phone Number must be 10 numbers, no spaces or dashes");
-                window.location = "login_page.html"; // Redirect to login page
-                return false;
-            }
-
-            // Check if Email is empty
-            if (inputEmail.trim() === "" || !inputEmail.includes("@") || !inputEmail.includes(".")) {
+             //Check if Email is empty
+             if (inputEmail.trim() === "" || !inputEmail.includes("@") || !inputEmail.includes(".")) {
                 alert("Invalid email address");
-                window.location = "login_page.html"; // Redirect to login page
-                return false;
-            }
-        </script>
-</form>
+                 window.location = "signup_page.html"; // Redirect to back to sign up page
+                 return false;
+                 emailValid = false;
+             }
 
+             if (localStorage.getItem(inputUsername) || localStorage.getItem(inputPassword) || localStorage.getItem(inputPhone) || localStorage.getItem(inputEmail)) {
+                 alert("Username, password, phone number, or email have already been used");
+                 window.location = "signup_page.html"; // Redirect back to sign up page
+                 return false;
+             }
+
+            console.log(inputUsername);
+            console.log(inputPassword);
+            console.log(inputPhone);
+            console.log(inputEmail);
+            console.log(userId);
+        
+
+           
+            if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false) {
+                 alert("Login successful");
+                window.location = "home.html"; // Redirect to home page
+                return true;
+
+               localStorage.setItem("username", inputUsername);
+               localStorage.setItem("password", inputPassword);
+               localStorage.setItem("phone", inputPhone);
+               localStorage.setItem("email", inputEmail);
+                localStorage.setItem("userId", userId);
+            }
+
+            if ( unameValid == false || pwordValid == false || phoneValid == false || emailValid == false) {
+            alert("Login failed");
+            window.location = "signup_page.html"; // Redirect to sign up page
+            return false;
+            }
+            
+        
+
+
+        }
+        </script>
+    </div>
+</form>
 </html>
 
