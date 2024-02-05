@@ -8,6 +8,8 @@
 
 <link rel="stylesheet" href="css/login_page.css">
 
+<span class="open"> <a href="open.html">Go Back</a> </span> <br> <br>
+
 <form action="home.html" method="post" onsubmit="return validate()">
   <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -18,53 +20,8 @@
 
     <button type="submit">Login</button>
 
-    <script>
-      // Function to validate the username and password
-      function validate() {
-        var inputUsername
-        var inputPassword
-        inputUsername = document.getElementsByName("uname")[0].value;
-        inputPassword = document.getElementsByName("psw")[0].value;
+    <script src="js/login_page.js"></script>
 
-        // Check if username is empty&  checks if the password meets the parameters
-        if(inputUsername.trim() === "") {
-            alert("Username cannot be empty");
-            window.location = "login_page.html"; // Redirect to login page
-            return false;
-        }
-        if(inputUsername.length <= 4) {
-            alert("Username must have 4 or more letters");
-            window.location = "login_page.html"; // Redirect to login page
-            return false;
-        }
-
-
-        // Check if password is empty &  checks if the password meets the parameters
-        if(inputPassword.trim() === "") {
-            alert("Password cannot be empty");
-            window.location = "login_page.html"; // Redirect to login page
-            return false;
-        } 
-        if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)) {
-            alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
-            window.location = "login_page.html"; // Redirect to login page
-            return false;
-        }
-
-        // Check if username and password match predefined values
-        if(inputUsername == "admin" && inputPassword == "Password1") {
-            alert("Login successful");
-            window.location = "home.html"; // Redirect to home page
-            return true;
-
-        } else {
-            alert("Login failed");
-            window.location = "login_page.html"; // Redirect to login page  
-            return false
-        }
-
-      }
-    </script>
   </div>
 </form>
-</html>
+</html> 
