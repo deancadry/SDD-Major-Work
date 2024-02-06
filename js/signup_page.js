@@ -16,7 +16,7 @@ function test() {
         inputPhone = document.getElementsByName("phonenum")[0].value;
         inputEmail = document.getElementsByName("email")[0].value;
       //Generate unique ID for the new user
-    userId = Math.floor(Math.random() * 1000000);
+    userId = Math.floor(Math.random() * 1000000); // Creates a value between 0 --> 999999, 
 
 
 
@@ -56,12 +56,6 @@ if (inputUsername.length <= 3) {
      return false;
  }
 
- if (localStorage.getItem(inputUsername) || localStorage.getItem(inputPassword) || localStorage.getItem(inputPhone) || localStorage.getItem(inputEmail)) {
-     alert("Username, password, phone number, or email have already been used");
-     window.location = "signup_page.html"; // Redirect back to sign up page
-     return false;
- }
-
 console.log(inputUsername);
 console.log(inputPassword);
 console.log(inputPhone);
@@ -70,8 +64,9 @@ console.log(userId);
 
 
 
-if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false) {
+if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false) { // are all the booleans === true?
      alert("Login successful");
+     alert("Your user ID is " + userId + " please keep this number safe");
    localStorage.setItem("username", inputUsername);
    localStorage.setItem("password", inputPassword);
    localStorage.setItem("phone", inputPhone);
@@ -82,7 +77,8 @@ if (unameValid != false && pwordValid != false && phoneValid != false && emailVa
 
 }
 
-if ( unameValid == false || pwordValid == false || phoneValid == false || emailValid == false) {
+
+if ( unameValid == false || pwordValid == false || phoneValid == false || emailValid == false) { // are the booleans === false
 alert("Login failed");
 window.location = "signup_page.html"; // Redirect to sign up page
 return false;

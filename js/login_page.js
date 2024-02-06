@@ -25,7 +25,7 @@
         return false;
     } 
     if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)) {
-        alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
+        alert("Username or Password is invalid. Please try again.");
         window.location = "login_page.html"; // Redirect to login page
         return false;
     }
@@ -38,7 +38,7 @@
     }
 
      else {
-        alert("Login failed");
+        alert("Username or Password is invalid. Please try again.");
         window.location = "login_page.html"; // Redirect to login page  
         return false
     }
