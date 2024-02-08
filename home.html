@@ -5,41 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Calculator - Home</title>
 </head>
-<body>
 
 
-
-
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
 <body>
-<script> alert("welcome") </script>
+        <p id="welcome"><script>  
+            var uname = localStorage.getItem('uname');
+            document.getElementById("welcome").innerHTML = "Welcome " + uname; 
+        </script></p>
 
-    <div class="header">
-        <p1> Welcome to Tax Calculator </p1>
+        
         <br> <br>
-        <span class="logout"> <a href="open.html">Logout</a> </span>
-    </div>
-
     <br> <br>
 
-    <div class="notHeader">
-        <span class="calculator"> <a href="calculator.html">Calculator</a> </span>
-        <br> <br>
-        <span class="history"> <a href="history.html">History</a> </span>
-        <br> <br>
-        <span class="profile"> <a href="profile.html">Profile</a> </span>
+    <!-- Div that will displays the links in the nav bar at the top of the page -->
+    <nav>
+        <div class="navbar">
+        <ul class="left">
+            <li><a href="home.html">Tax Calculator</a> </li>
+        </ul>
+        <ul class="menu"> 
+            <li><a href="Calculator/Individual/Individual.html">Individual</a></li>
+            <li><a href="Calculator/Business/Business.html">Business</a></li>
+            <li><a href="#History">History</a></li>
+            <li><a href="#Profile">Profile</a></li>
+            <li><a href="open.html">Logout</a></li>
+
+        </ul>
     </div>
-
-    <br> <br>
-
-    <div class="footer">
-        <p2> Tax Calculator </p2>
-    </div>
-
-    <br> <br>
-
-
+    </nav>
+  
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <footer>
+        <div class="footer">
+            <p> &copy; 2024 Tax Calculator </p>
+        </div>
+    </footer>
 </body>
-
 </html>

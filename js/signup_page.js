@@ -25,7 +25,7 @@ function test() {
 if (inputUsername.length <= 3) {
     alert("Username must have 4 or more letters");
     console.log(invalidUsername);
-    window.location = "signup_page.html"; // Redirect to back to sign up page
+    window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
     unameValid = false;
     return false;
 
@@ -34,7 +34,7 @@ if (inputUsername.length <= 3) {
 // Check if password meets the criteria
  if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)){
      alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
-     window.location = "signup_page.html"; // Redirect to back to sign up page
+     window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
      pwordValid = false;
      return false;
 
@@ -43,7 +43,7 @@ if (inputUsername.length <= 3) {
 // Check if PhoneNum is meets the cirtieria 
  if ((/\s/).test(inputPhone) || /-/.test(inputPhone)) { 
      alert("Phone Number must be 10 numbers, no spaces or dashes");
-    window.location = "signup_page.html"; // Redirect to back to sign up page
+    window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
      phoneValid = false;
      return false;
 }
@@ -51,7 +51,7 @@ if (inputUsername.length <= 3) {
  //Check if Email is empty
  if (inputEmail.trim() === "" || !inputEmail.includes("@") || !inputEmail.includes(".")) {
     alert("Invalid email address");
-     window.location = "signup_page.html"; // Redirect to back to sign up page
+     window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
      emailValid = false;
      return false;
  }
@@ -72,7 +72,7 @@ if (unameValid != false && pwordValid != false && phoneValid != false && emailVa
    localStorage.setItem("phone", inputPhone);
    localStorage.setItem("email", inputEmail);
    localStorage.setItem("userId", userId);
-   window.location = "login_page.html"; // Redirect to home page
+   window.location = "../Login-Signup-System/login_page.html"; // Redirect to home page
    return true;
 
 }
@@ -80,7 +80,7 @@ if (unameValid != false && pwordValid != false && phoneValid != false && emailVa
 
 if ( unameValid == false || pwordValid == false || phoneValid == false || emailValid == false) { // are the booleans === false
 alert("Login failed");
-window.location = "signup_page.html"; // Redirect to sign up page
+window.location = "../Login-Signup-System/signup_page.html"; // Redirect to sign up page
 return false;
 }
 }
