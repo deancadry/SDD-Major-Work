@@ -13,6 +13,10 @@
 
 <body>
 
+    <br>
+    <br>
+    <br>
+
     <nav>
         <div class="navbar">
         <ul class="left">
@@ -29,31 +33,30 @@
     </div>
     </nav>
 </div>  
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-    <footer>
-        <div class="footer">
-            <p> &copy; 2024 Tax Calculator </p>
-        </div>
-    </footer>
+
+
+    <div class="SignUp">
+
+        <p> Sign Up</p>
+    
+    </div>
 
 <form action="login_page.html" method="post" onsubmit="return test()">
     <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required/><br>
+        <label for="uname" id="Usernme"><b>Username</b></label>
+        <input id="User" type="text" placeholder="Enter Username" name="uname" required autocomplete="off"/><br>
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required/><br>
+        <input id="Pass" type="password" placeholder="Enter Password" name="psw" required autocomplete="off"/><br>
 
     
         <label for="phonenum"><b>Phone Number</b></label>
-        <input type="tel" placeholder="041234578" name="phonenum"  maxlength = "10" required/><br>
-    
-
+        <input id="phone" type="tel" placeholder="041234578" name="phonenum"  maxlength = "10" required autocomplete="tel-national"/><br>
     
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="name@gmail.com" name="email" required/><br>
+        <input id="em-ail" type="email" placeholder="name@gmail.com" name="email" required autocomplete="email" /><br>
         
-        <button type="submit">Sign Up</button>
+        <button type="submit">Continue</button>
 
  
             <script src="../js/signup_page.js"></script>
@@ -61,5 +64,13 @@
     </div>
 </form>
 </body>
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<footer>
+    <div class="footer">
+        <p> &copy; 2024 Tax Calculator </p>
+    </div>
+</footer>
+
 </html>
 

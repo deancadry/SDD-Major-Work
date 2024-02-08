@@ -12,6 +12,7 @@ body {
 	text-align: center;
   font-family: 'Poppins', sans-serif;
 	margin: 0 auto;
+  margin-top: 10px;
 	background-color: #FFF;
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -20,22 +21,24 @@ body {
 
 
 .container {
-	border-style: none none solid none;
-	border-color: #1b98f5;
-	padding: 10px;
+	/* border-style: none none solid none;
+	border-color: #1b98f5; */
+	padding: 25px;
 	font-weight: bold;
-	margin: 2px;
+  margin: 2px;
+  text-align: center;
+
 }
 
 button {
 	margin: 15px;
-	margin-top: 20px;
+	margin-top: 30px;
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
 	color: white;
 	font-weight: bold;
-	width: 50%;
+	width: 25%;
   background-color: #000;
   font-size: 17px;
   font-weight: 500;
@@ -179,16 +182,32 @@ footer{
 
 }
 
-p > #welcome {
 
-  color: #000;
-  font-size: 17px;
-  font-weight: 500;
-  text-decoration: none;
-  margin: 0 15px;
+.SignUp{
   text-align: center;
+  margin: 0 15px;
+  padding: 10px;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bolder;
+  text-decoration: none;
+  border: none;
+  }
 
+
+.container > #User{
+  margin:5px 0px;
 }
 
+.container > #Pass{
+  margin:5px 0px;
+}
 
+.container > #phone{
+  margin:5px 0px;
+}
 
+.container > #em-ail{
+  margin: 5px 0px;
+}

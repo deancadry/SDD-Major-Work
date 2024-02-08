@@ -24,7 +24,6 @@ function test() {
 // Check if username has more than 4 letters
 if (inputUsername.length <= 3) {
     alert("Username must have 4 or more letters");
-    console.log(invalidUsername);
     window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
     unameValid = false;
     return false;
