@@ -8,13 +8,14 @@
 
 
 <link rel="stylesheet" href="home.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
 <body>
-        <p id="welcome"><script>  
+    <!-- <div class="welcome"></div>
+        <p><script>  
             var uname = localStorage.getItem('uname');
             document.getElementById("welcome").innerHTML = "Welcome " + uname; 
-        </script></p>
+        </script></p> -->
+
 
         
         <br> <br>
@@ -32,15 +33,18 @@
             <li><a href="#History">History</a></li>
             <li><a href="#Profile">Profile</a></li>
             <li><a href="open.html">Logout</a></li>
-
+    
         </ul>
     </div>
     </nav>
-  
+    
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
     <footer>
         <div class="footer">
-            <p> &copy; 2024 Tax Calculator </p>
+            <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
+    
+            <a id="pp" href="privacypolicy.html">Privacy Policy</a>
+    
         </div>
     </footer>
 </body>

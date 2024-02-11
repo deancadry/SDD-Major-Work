@@ -152,3 +152,14 @@ footer{
   font-weight: 500;
   text-decoration: none;
 }
+
+#pp{
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  color: #FFF;
+  font-size: 17px;
+  font-weight: 500;
+}

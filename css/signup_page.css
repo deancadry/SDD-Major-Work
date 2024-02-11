@@ -171,7 +171,6 @@ footer{
   height: 50px;
   background: #2980b9;
   color: #fff;
-  text-align: left;
   padding-top: 15px;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -180,6 +179,23 @@ footer{
 
   margin: 0 15px;
 
+}
+
+#CR{
+
+float:left;
+
+}
+
+#pp{
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  color: #FFF;
+  font-size: 17px;
+  font-weight: 500;
 }
 
 
