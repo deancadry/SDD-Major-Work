@@ -18,6 +18,7 @@ function test() {
       //Generate unique ID for the new user
     userId = Math.floor(Math.random() * 1000000); // Creates a value between 0 --> 999999, 
 
+    ///USE A WHILE LOOP TO CHECK IF THE ID IS UNIQUE
 
 
 
