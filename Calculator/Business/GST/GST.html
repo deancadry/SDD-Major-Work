@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator - Payroll Tax</title>
+    <link rel="stylesheet" href="GST.css">
+
+</head>
+<body>
+    
+    <div class="container">
+        <br><br><h1>Payroll Tax Calculator</h1>
+        <label for="payroll"><b>Please Enter The Average Total Payroll Paid Each Year:</b></label>
+        <input type="number" name="payroll" id = "payroll" autocomplete="off">
+        <button type="submit" onclick = "calculatePTax()">Continue</button>
+
+        <br><br><br><br><b><p id = "outputTax"> </p> </b> <br> <br>
+
+    </div>
+
+    <nav>
+        <div class="navbar">
+        <ul class="left">
+            <li><a href="../../../home.html">Tax Calculator</a> </li>
+        </ul>
+        <ul class="menu"> 
+            <li><a href="../../Individual/Individual.html">Individual</a></li>
+            <li><a href="../Business.html">Business</a></li>
+            <li><a href="#History">History</a></li>
+            <li><a href="#Profile">Profile</a></li>
+            <li><a href="../../../open.html">Logout</a></li>
+    
+        </ul>
+    </div>
+    </nav>
+    
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <footer>
+        <div class="footer">
+            <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
+    
+            <a id="pp" href="../../../privacypolicy.html">Privacy Policy</a>
+    
+        </div>
+    </footer>
+
+    <script>
+        function calculatePTax(){
+
+        var payroll = document.getElementById("payroll").value;
+
+        
+
+
+        if (payroll === 0){
+             document.getElementById("outputTax").innerHTML = "Please Enter a Value";
+        } else if (payroll >= 1  &&  payroll <= 1200000) { 
+            document.getElementById("outputTax").innerHTML = "Your Are In The Tax Free Threshold for Payroll Tax.";
+        } else {
+            document.getElementById("outputTax").innerHTML = "Your Are Outside The Tax Free Threshold for Payroll Tax. Your Estimated Payroll Tax is: $" + String(Math.round(payroll * .0545));
+        };
+
+        console.log(payroll);
+        }
+    </script>
+</body>
+</html>

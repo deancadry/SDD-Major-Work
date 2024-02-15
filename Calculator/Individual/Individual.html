@@ -48,9 +48,9 @@
             
             else if (inputIncome >= 190001) {
 
-                highmiddle = (inputIncome - 190000) * 0.45
+                highest = (inputIncome - 190000) * 0.45
                 medicareLevy = (inputIncome - 18200) * 0.02
-                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(highmiddle + medicareLevy + 51638) + "   , This value is including the Medicare levy of 2%";
+                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(highest + medicareLevy + 51638) + "   , This value is including the Medicare levy of 2%";
             }
         }
     </script>
