@@ -5,32 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Calculator - History</title>
     <link rel="stylesheet" href="history.css">
+    <link rel = "icon" type="image/x-icon" href = "../favicon.ico">
 </head>
 <body>
 
 
     <div class="container">
-        <br><br>
-        <h1> Past 3 Calculated Values</h1>
+        <br><br><br><h1 style="font-weight: bolder;">Past Tax Calculations</h1> <br>
+        <div class="centering">
+        <h2 style="font-weight: bold;"> Select which type of tax you would like to display the last 3 calculations for</h2> <br>
+        <button onclick="CT()">Company Tax</button>
+        <button onclick="PT()">Payroll Tax</button>
+        <button onclick="IT()">Individual Tax</button>
+    </div>
 
+        
+        <br><br>
+        <h2 id = "header"></h2>
         <p id = "1"></p>
         <p id = "2"></p>
         <p id = "3"></p>
-
-
     </div>
 
     <nav>
         <div class="navbar">
         <ul class="left">
-            <li><a href="../../home.html">Tax Calculator</a> </li>
+            <li><a href="../home.html">Tax Calculator</a> </li>
         </ul>
         <ul class="menu"> 
             <li><a href="../Calculator/Individual/Individual.html">Individual</a></li>
             <li><a href="../Calculator/Business/Business.html">Business</a></li>
             <li><a href="history.html">History</a></li>
             <li><a href="../Profile/Profile.html">Profile</a></li>
-            <li><a href="../../open.html">Logout</a></li>
+            <li><a href="../open.html">Logout</a></li>
     
         </ul>
     </div>
@@ -48,20 +55,6 @@
     
 </body>
 
-<script>
-    displayValues();
-
-    function displayValues() {
-        var last3 = JSON.parse(localStorage.getItem("last3"));
-        document.getElementById("1").innerHTML = last3[0];
-        document.getElementById("2").innerHTML = last3[1];
-        document.getElementById("3").innerHTML = last3[2];
-    }
-</script>
-
-
-
-
-
+<script src= "history.js"></script>
 
 </html>

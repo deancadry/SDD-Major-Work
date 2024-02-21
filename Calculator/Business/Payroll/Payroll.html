@@ -12,10 +12,10 @@
 <body>
     
     <div class="container">
-        <br><br><h1>Payroll Tax Calculator</h1>
+        <br><br><h1>Payroll Tax Calculator</h1><br><br>
         <label for="payroll"><b>Please Enter The Average Total Payroll Paid Each Year:</b></label>
         <input type="number" name="payroll" id = "payroll" autocomplete="off">
-        <button type="submit" onclick = "calculatePTax()">Continue</button>
+        <br><br><br><button type="submit" onclick = "calculatePTax()">Continue</button>
 
         <br><br><br><br><b><p id = "outputTax"> </p> </b> <br> <br>
 
@@ -29,7 +29,7 @@
         <ul class="menu"> 
             <li><a href="../../Individual/Individual.html">Individual</a></li>
             <li><a href="../Business.html">Business</a></li>
-            <li><a href="#History">History</a></li>
+            <li><a href="../../../History/history.html">History</a></li>
             <li><a href="../../../Profile/Profile.html">Profile</a></li>
             <li><a href="../../../open.html">Logout</a></li>
     
@@ -48,23 +48,42 @@
     </footer>
 
     <script>
+        const arr = [0, 0, 0];
+        let newValue = 0;
+
         function calculatePTax(){
 
-        var payroll = document.getElementById("payroll").value;
-
-        
+        let payroll = document.getElementById("payroll").value;
 
 
-        if (payroll === 0){
-             document.getElementById("outputTax").innerHTML = "Please Enter a Value";
+    
+        if (payroll <= 0){
+             document.getElementById("outputTax").innerHTML = "Please Enter a Value Above";
         } else if (payroll >= 1  &&  payroll <= 1200000) { 
-            document.getElementById("outputTax").innerHTML = "Your Are In The Tax Free Threshold for Payroll Tax.";
+            newValue = 0;
+            document.getElementById("outputTax").innerHTML = "Your Are In The Tax Free Threshold for Payroll Tax." + "<br>" + "<br>" +  "Less than $1,200,000 of Payroll is Tax Free.";
+            shiftRight();
         } else {
-            document.getElementById("outputTax").innerHTML = "Your Are Outside The Tax Free Threshold for Payroll Tax. Your Estimated Payroll Tax is: $" + String(Math.round(payroll * .0545));
+            newValue = payroll * .0545;
+            let number = newValue.toLocaleString("en-AU", {style:"currency", currency: "AUD"});
+            document.getElementById("outputTax").innerHTML = "Your Are Outside The Tax Free Threshold for Payroll Tax" + "<br>" +  "Your Estimated Payroll Tax is: " + number ;
+            shiftRight();
         };
 
         console.log(payroll);
         }
+
+    function shiftRight() {
+        arr.pop();
+        arr.unshift(newValue);
+        console.log(arr);
+        localStorage.setItem("ptLast3", JSON.stringify(arr));
+        return arr;
+    }
     </script>
+
+
+
 </body>
 </html>
+
