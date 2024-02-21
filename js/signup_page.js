@@ -1,5 +1,5 @@
 function test() {
-    // Declaring variables, outside of the function so that console.log can access them
+
     var inputUsername;
     var inputPassword;
     var inputPhone;
@@ -16,9 +16,9 @@ function test() {
         inputPhone = document.getElementsByName("phonenum")[0].value;
         inputEmail = document.getElementsByName("email")[0].value;
       //Generate unique ID for the new user
-    userId = Math.floor(Math.random() * 1000000); // Creates a value between 0 --> 999999, 
+    userId = Math.floor(Math.random() * 1000000) + 1;
 
-    ///USE A WHILE LOOP TO CHECK IF THE ID IS UNIQUE
+    //USE A WHILE LOOP TO CHECK IF THE ID IS UNIQUE
 
 
 
@@ -67,6 +67,7 @@ console.log(userId);
 if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false) { // are all the booleans === true?
      alert("Login successful");
      alert("Your user ID is " + userId + " please keep this number safe");
+
    localStorage.setItem("username", inputUsername);
    localStorage.setItem("password", inputPassword);
    localStorage.setItem("phone", inputPhone);

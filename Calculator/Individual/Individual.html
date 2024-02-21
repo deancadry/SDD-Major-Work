@@ -5,54 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Calculator - Individual Calculator</title>
     <link rel="stylesheet" href="individual.css">
+    <link rel = "icon" type="image/x-icon" href = "../../favicon.ico">
+
 </head>
+
 <body>
     <div class="container">
         <br><br><h1>Individual Tax Calculator</h1>
         <label for="income"><b>Please Enter Your Taxable Income:</b></label>
-        <input type="number" name="income" id = "income" required autocomplete="off">
-        <button type="submit" onclick = "calculateITax()">Continue</button>
+        <input type="number" name="income" id="income" required autocomplete="off">
+        <button type="submit" onclick="calculateITax()">Continue</button>
     </div>
 
-    <br><Br><p id = "outputTax"> </p>
+    <br><Br><p id="outputTax"> </p>
 
     <script>
+     const arr = [0, 0, 0];
+
         function calculateITax() {
             var inputIncome = 0;
-            var lowest
-            var lowmiddle
-            var highmiddle
-            var highest
-            var medicareLevy
+            var lowest;
+            var lowmiddle;
+            var highmiddle;
+            var highest;
+            var medicareLevy = 0;
+            newValue = 0;
             inputIncome = document.getElementById("income").value;
 
             if (inputIncome < 18200) {
+                newValue = 0;
                 document.getElementById("outputTax").innerHTML = "No Tax";
+
+
             } else if (inputIncome >= 18201 && inputIncome < 45001) {
-                 lowest = (inputIncome - 18200) *0.16
-                 medicareLevy = (inputIncome - 18200) * 0.02
-                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(lowest + medicareLevy) + "   , This value is including the Medicare levy of 2%";
-            }
-             else if (inputIncome >= 45001 && inputIncome < 135000) {
+                lowest = (inputIncome - 18200) * 0.16;
+                medicareLevy = (inputIncome - 18200) * 0.02;
+                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(lowest + medicareLevy) + " , This value is including the Medicare levy of 2%";
+                newValue = lowest + medicareLevy;
+                shiftRight(newValue);
 
-                lowmiddle = (inputIncome - 45000) * 0.30
-                medicareLevy = (inputIncome - 18200) * 0.02
-                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(lowmiddle + medicareLevy + 4288) + "   , This value is including the Medicare levy of 2%";
-            }
-             else if (inputIncome >= 135000 && inputIncome < 190001) {
 
-                highmiddle = (inputIncome - 135000) * 0.37
-                medicareLevy = (inputIncome - 18200) * 0.02
-                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(highmiddle + medicareLevy + 31288) + "   , This value is including the Medicare levy of 2%";
-            } 
+            } else if (inputIncome >= 45001 && inputIncome < 135000) {
+                lowmiddle = ((inputIncome - 45000) * 0.30) + 4288;
+                medicareLevy = (inputIncome - 18200) * 0.02;
+                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(lowmiddle + medicareLevy) + " , This value is including the Medicare levy of 2%";
+                newValue = lowmiddle + medicareLevy;
+                shiftRight(newValue);
             
-            else if (inputIncome >= 190001) {
-
-                highest = (inputIncome - 190000) * 0.45
-                medicareLevy = (inputIncome - 18200) * 0.02
-                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(highest + medicareLevy + 51638) + "   , This value is including the Medicare levy of 2%";
+            
+            } else if (inputIncome >= 135000 && inputIncome < 190001) {
+                highmiddle = ((inputIncome - 135000) * 0.37) + 31288;
+                medicareLevy = (inputIncome - 18200) * 0.02;
+                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(highmiddle + medicareLevy ) + "   , This value is including the Medicare levy of 2%";
+                newValue = highmiddle + medicareLevy;
+                shiftRight(newValue);
+            
+            } else if (inputIncome >= 190001) {
+                highest = ((inputIncome - 190000) * 0.45) + 51638;
+                medicareLevy = (inputIncome - 18200) * 0.02;
+                document.getElementById("outputTax").innerHTML = "Your Estimated Tax Payment is: $" + String(highest + medicareLevy) + "   , This value is including the Medicare levy of 2%";
+                newValue = highest + medicareLevy;
+                shiftRight(newValue);
             }
         }
+
+    
+    function shiftRight() {
+        arr.pop();
+        arr.unshift(newValue);
+        console.log(arr);
+        localStorage.setItem("last3", JSON.stringify(arr));
+        return arr;
+
+    }
     </script>
 
 <nav>
@@ -63,8 +88,8 @@
     <ul class="menu"> 
         <li><a href="Individual.html">Individual</a></li>
         <li><a href="../Business/Business.html">Business</a></li>
-        <li><a href="#History">History</a></li>
-        <li><a href="#Profile">Profile</a></li>
+        <li><a href="../../History/history.html">History</a></li>
+        <li><a href="../../Profile/Profile.html">Profile</a></li>
         <li><a href="../../open.html">Logout</a></li>
 
     </ul>
@@ -74,7 +99,7 @@
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 <footer>
     <div class="footer">
-        <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
+        <p style="display:inline-block"; id="CR"> &copy; 2024 Tax Calculator </p>
 
         <a id="pp" href="../../privacypolicy.html">Privacy Policy</a>
 

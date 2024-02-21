@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator - Profile</title>
+    <link rel="stylesheet" href="Profile.css">
+    <link rel = "icon" type="image/x-icon" href = "../favicon.ico">
+
+</head>
+<body>
+    
+
+    <nav>
+        <div class="navbar">
+        <ul class="left">
+            <li><a href="../home.html">Tax Calculator</a> </li>
+        </ul>
+        <ul class="menu"> 
+            <li><a href="../Calculator/Individual/Individual.html">Individual</a></li>
+            <li><a href="../Calculator/Business/Business.html">Business</a></li>
+            <li><a href="#History">History</a></li>
+            <li><a href="../Profile/Profile.html">Profile</a></li>
+            <li><a href="../open.html">Logout</a></li>
+    
+        </ul>
+    </div>
+    </nav>
+
+
+    <form method="post" onsubmit="return validateDetails()">
+     <div id= "preDisplay" class="preDisplay">
+
+        <br><br><br><br>
+          <label for="uID"><b>User ID</b></label>
+          <input type="number" placeholder="Enter UserID" name="uID" autocomplete="off">
+
+          <label for = "uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" autocomplete="off">
+
+          <button>Continue</button>
+
+
+
+    </div>
+    </form>
+
+
+    <div class="container">
+        <br><br><p id = "uname"> </p>
+
+        <br><br><p id = "pword"> </p>
+
+        <br><br><p id = "phonenumber"> </p>
+
+        <br><br><p id = "email"> </p>
+    </div>
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <footer>
+        <div class="footer">
+            <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
+    
+            <a id="pp" href="../../privacypolicy.html">Privacy Policy</a>
+    
+        </div>
+    </footer>
+
+
+</body>
+</html>
