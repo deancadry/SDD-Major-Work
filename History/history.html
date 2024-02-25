@@ -14,10 +14,13 @@
         <br><br><br><h1 style="font-weight: bolder;">Past Tax Calculations</h1> <br>
         <div class="centering">
         <h2 style="font-weight: bold;"> Select which type of tax you would like to display the last 3 calculations for</h2> <br>
-        <button onclick="CT()">Company Tax</button>
-        <button onclick="PT()">Payroll Tax</button>
-        <button onclick="IT()">Individual Tax</button>
+        <button onclick="displayIT()">Individual Tax</button>
+        <button onclick="displayCT()">Company Tax</button>
+        <button onclick="displayPT()">Payroll Tax</button>
+        
+
     </div>
+
 
         
         <br><br>
@@ -26,6 +29,8 @@
         <p id = "2"></p>
         <p id = "3"></p>
     </div>
+    <script src= "history.js"></script>
+
 
     <nav>
         <div class="navbar">
@@ -55,6 +60,5 @@
     
 </body>
 
-<script src= "history.js"></script>
 
 </html>

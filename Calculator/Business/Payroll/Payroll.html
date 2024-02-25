@@ -64,7 +64,7 @@
             document.getElementById("outputTax").innerHTML = "Your Are In The Tax Free Threshold for Payroll Tax." + "<br>" + "<br>" +  "Less than $1,200,000 of Payroll is Tax Free.";
             shiftRight();
         } else {
-            newValue = payroll * .0545;
+            newValue = (payroll * .0545);
             let number = newValue.toLocaleString("en-AU", {style:"currency", currency: "AUD"});
             document.getElementById("outputTax").innerHTML = "Your Are Outside The Tax Free Threshold for Payroll Tax" + "<br>" +  "Your Estimated Payroll Tax is: " + number ;
             shiftRight();
