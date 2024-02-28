@@ -33,13 +33,13 @@
 <div class="header">
    <b> <p> Welcome to Tax Calculator </p></b>
     <br> <br>
-    <a id= "signup" href="Login-Signup-System/signup_page.html">Sign Up Here!</a>    
+    <a id= "signup" href="Login-Signup-System/signup_page.html" onclick="init()">Sign Up Here!</a>    
 </div>
 
 <br> <br>
 
-<div class="notheader">
-<a id = "login" href = "Login-Signup-System/login_page.html"> Already have an account?</a>
+<div class="notheader"> 
+<a id = "login" href = "Login-Signup-System/login_page.html" onclick="init()"> Already have an account?</a>
 </div>
 
 
@@ -55,5 +55,24 @@
     </div>
 </footer>
 
+
+
+<script>
+  //Initialise the arrays for the page
+  function init() {
+    const username = ["dean"];
+    const password = ["Tester123"];
+    const phone = ["0406655122"];
+    const email = ["dean@dean.com"];
+    const userId = ["123456"];
+
+    localStorage.setItem("username", JSON.stringify(username));
+    localStorage.setItem("password", JSON.stringify(password));
+    localStorage.setItem("phone", JSON.stringify(phone));
+    localStorage.setItem("email", JSON.stringify(email));
+    localStorage.setItem("userId", JSON.stringify(userId));
+  }
+
+</script>
 </body>
 </html>

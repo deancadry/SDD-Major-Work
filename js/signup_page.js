@@ -1,24 +1,23 @@
-function test() {
 
-    var inputUsername;
-    var inputPassword;
-    var inputPhone;
-    var inputEmail;
-    var userId;
+function test() {
+      // Get the input values
+    let inputUsername = document.getElementById("User").value;
+    let inputPassword = document.getElementById("Pass").value;
+    let inputPhone = document.getElementById("phone").value;
+    let inputEmail = document.getElementById("em-ail").value;
+      //Generate unique ID for the new user
+    let inputUserId = Math.floor(Math.random() * 1000000) + 1;
     unameValid = true;
     pwordValid = true; 
     phoneValid = true;
     emailValid = true;  
-    
-      // Get the input values
-        inputUsername = document.getElementsByName("uname")[0].value;
-        inputPassword = document.getElementsByName("psw")[0].value;
-        inputPhone = document.getElementsByName("phonenum")[0].value;
-        inputEmail = document.getElementsByName("email")[0].value;
-      //Generate unique ID for the new user
-    userId = Math.floor(Math.random() * 1000000) + 1;
 
-    //USE A WHILE LOOP TO CHECK IF THE ID IS UNIQUE
+    let username = JSON.parse(localStorage.getItem("username"));
+    let password = JSON.parse(localStorage.getItem("password")) || [];
+    let phone = JSON.parse(localStorage.getItem("phone")) || [];
+    let email = JSON.parse(localStorage.getItem("email")) || [];
+    let userId = JSON.parse(localStorage.getItem("userId")) || [];
+    
 
 
 
@@ -56,27 +55,18 @@ if (inputUsername.length <= 3) {
      return false;
  }
 
-console.log(inputUsername);
-console.log(inputPassword);
-console.log(inputPhone);
-console.log(inputEmail);
-console.log(userId);
 
+if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false){ // are all the booleans === true? 
+     alert("Your user ID is " + inputUserId + " please keep this number safe");
+     push();
+     alert("You have successfully signed up");
+     window.location = "../Login-Signup-System/login_page.html"; // Redirect to home page
 
-
-if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false) { // are all the booleans === true?
-     alert("Login successful");
-     alert("Your user ID is " + userId + " please keep this number safe");
-
-   localStorage.setItem("username", inputUsername);
-   localStorage.setItem("password", inputPassword);
-   localStorage.setItem("phone", inputPhone);
-   localStorage.setItem("email", inputEmail);
-   localStorage.setItem("userId", userId);
-   window.location = "../Login-Signup-System/login_page.html"; // Redirect to home page
-   return true;
+  return true;
 
 }
+
+
 
 
 if ( unameValid == false || pwordValid == false || phoneValid == false || emailValid == false) { // are the booleans === false
@@ -85,3 +75,37 @@ window.location = "../Login-Signup-System/signup_page.html"; // Redirect to sign
 return false;
 }
 }
+
+function push(username, password, phone, email, userId, inputUsername, inputPassword, inputPhone, inputEmail, inputUserId){
+
+if (username.length === password.length === phone.length === email.length === userId.length){
+
+  alert("Adding values to array and local storage");
+  // .push() adds the new user details to the end of the array
+
+  username.push(inputUsername);
+  password.push(inputPassword);
+  phone.push(inputPhone);
+  email.push(inputEmail);
+  userId.push(inputUserId);
+  // .setItem() sets the new user details to the local storage
+
+
+  localStorage.setItem("username", JSON.stringify(username));
+  localStorage.setItem("password", JSON.stringify(password));
+  localStorage.setItem("phone", JSON.stringify(phone));
+  localStorage.setItem("email", JSON.stringify(email));
+  localStorage.setItem("userId", JSON.stringify(userId)); 
+  alert("finished");
+  return true;
+
+}
+else {
+
+  alert("An error has occured. Please try again. If the issue continues please contact me at dean.cadry@reddamhouse.com.au");
+  window.location = "../Login-Signup-System/signup_page.html"; // Redirect to sign up page
+  return false;
+}
+}
+
+
