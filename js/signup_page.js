@@ -59,7 +59,7 @@ function test() {
 
   if (unameValid != false && pwordValid != false && phoneValid != false && emailValid != false){ // are all the booleans === true? 
      alert("Your user ID is " + inputUserId + " please keep this number safe");
-     push(username, password, phone, email, userId, inputUsername, inputPassword, inputPhone, inputEmail, inputUserId);
+     push(username, password, phone, email, userId, inputUsername, inputPassword, inputPhone, inputEmail, inputUserId); // allows the function access to these variables <--
 
      alert("You have successfully signed up");
      window.location = "../Login-Signup-System/login_page.html"; // Redirect to home page
@@ -77,9 +77,9 @@ return false;
 };
 
 function push(username, password, phone, email, userId, inputUsername, inputPassword, inputPhone, inputEmail, inputUserId) {
-  // console.log(username + password + phone + email + userId + inputUsername + inputPassword + inputPhone + inputEmail + inputUserId)
+  console.log(username + password + phone + email + userId + inputUsername + inputPassword + inputPhone + inputEmail + inputUserId)
 
-  if (username.length == password.length == phone.length == email.length == userId.length){
+  if (username.length == password.length && password.length == phone.length && phone.length == email.length && email.length == userId.length){
 
     alert("Adding values to array and local storage");
 

@@ -58,19 +58,43 @@
 
 
 <script>
+
+    
   //Initialise the arrays for the page
   function init() {
-    const username = ["dean"];
-    const password = ["Tester123"];
-    const phone = ["0406655122"];
-    const email = ["dean@dean.com"];
-    const userId = ["123456"];
+        username =  JSON.parse(localstorage.getItem("username"));
+        pword =  JSON.parse(localstorage.getItem("password"));
+        phone = JSON.parse(localstorage.getItem("phone"));
+        email = JSON.parse(localstorage.getItem("email"));
+        userID = JSON.parse(localstorage.getItem("userID"));
 
-    localStorage.setItem("username", JSON.stringify(username));
-    localStorage.setItem("password", JSON.stringify(password));
-    localStorage.setItem("phone", JSON.stringify(phone));
-    localStorage.setItem("email", JSON.stringify(email));
-    localStorage.setItem("userId", JSON.stringify(userId));
+        if (username.length == 0) {
+            username = [];
+            password = [];
+            phone = [];
+            email = [];
+            userID = [];
+
+            localStorage.setItem("username", JSON.stringify(username));
+            localStorage.setItem("password", JSON.stringify(password));
+            localStorage.setItem("phone", JSON.stringify(phone));
+            localStorage.setItem("email", JSON.stringify(email));
+            localStorage.setItem("userId", JSON.stringify(userId));
+
+
+
+        }
+
+        else{
+            console.log(username + pword + phone + email + userID);
+
+            localStorage.setItem("username", JSON.stringify(username));
+            localStorage.setItem("password", JSON.stringify(password));
+            localStorage.setItem("phone", JSON.stringify(phone));
+            localStorage.setItem("email", JSON.stringify(email));
+            localStorage.setItem("userId", JSON.stringify(userId));
+    };
+
   }
 
 </script>
