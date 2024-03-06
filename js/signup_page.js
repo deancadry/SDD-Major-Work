@@ -6,18 +6,19 @@ function test() {
     let inputPhone = document.getElementById("phone").value;
     let inputEmail = document.getElementById("em-ail").value;
       //Generate unique ID for the new user
-    let inputUserId = Math.floor(Math.random() * 1000000) + 1;
     unameValid = true;
     pwordValid = true; 
     phoneValid = true;
     emailValid = true;  
 
-    let username = JSON.parse(localStorage.getItem("username"));
+    let username = JSON.parse(localStorage.getItem("username")) || [];
     let password = JSON.parse(localStorage.getItem("password")) || [];
     let phone = JSON.parse(localStorage.getItem("phone")) || [];
     let email = JSON.parse(localStorage.getItem("email")) || [];
     let userId = JSON.parse(localStorage.getItem("userId")) || [];
     
+    let inputUserId = userId.length + 1;
+
 
 
 
@@ -42,7 +43,7 @@ function test() {
   // Check if PhoneNum is meets the cirtieria 
   if ((/\s/).test(inputPhone) || /-/.test(inputPhone)) { 
      alert("Phone Number must be 10 numbers, no spaces or dashes");
-    window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
+     window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
      phoneValid = false;
      return false;
   };
@@ -50,7 +51,7 @@ function test() {
 
   //Check if Email is empty
   if (inputEmail.trim() === "" || !inputEmail.includes("@") || !inputEmail.includes(".")) {
-    alert("Invalid email address");
+     alert("Invalid email address");
      window.location = "../Login-Signup-System/signup_page.html"; // Redirect to back to sign up page
      emailValid = false;
      return false;
@@ -63,8 +64,7 @@ function test() {
 
      alert("You have successfully signed up");
      window.location = "../Login-Signup-System/login_page.html"; // Redirect to home page
-
-  return true;
+     return true;
 
   };
 
