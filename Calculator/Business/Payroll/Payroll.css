@@ -186,6 +186,7 @@ footer {
   position: relative;
   text-align: center;
   display: inline-block;
+  max-height: 20px;
 }
 
 .payrll input {
@@ -220,15 +221,4 @@ footer {
 
 .payrll :is(input:focus, input:valid) {
   border-color: #2980b9;
-}
-
-input[type="number"],
-select {
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  height: 40px;
 }

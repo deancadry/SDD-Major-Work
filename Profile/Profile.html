@@ -29,7 +29,7 @@
       method="post"
       onsubmit="return validateDetails()"
     >
-      <div id="preDisplay" class="preDisplay">
+      <div class="container">
         <br /><br /><br />
         <h1>Profile</h1>
         <br /><br /><br />
@@ -37,24 +37,27 @@
         <h2>Please Confirm your:</h2>
         <br />
 
-        <label for="uId"><b>User ID</b></label>
-        <input
-          type="number"
-          placeholder="UserID"
-          name="uId"
-          autocomplete="off"
-          id="uId"
-        /><br /><br />
+        <div class="userid">
+          <input
+            type="number"
+            name="uId"
+            autocomplete="off"
+            id="uId"
+            required
+          />
+          <label for="uId">User ID</label>
+        </div>
 
-        <label for="uname"><b>Username</b></label>
-        <input
-          type="text"
-          placeholder="Username"
-          name="uname"
-          autocomplete="off"
-          id="uname"
-        /><br />
-
+        <div class="username">
+          <input
+            type="text"
+            name="uname"
+            autocomplete="username"
+            id="User"
+            required
+          /><label for="uname">Username</label>
+        </div>
+        <br />
         <button type="submit">Continue</button>
 
         <script src="Profile.js"></script>

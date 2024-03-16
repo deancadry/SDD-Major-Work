@@ -19,10 +19,7 @@ body {
 }
 
 .container {
-  /* border-style: none none solid none;
-	border-color: #1b98f5; */
   padding: 25px;
-  font-weight: bold;
   margin: 2px;
   text-align: center;
 }
@@ -149,15 +146,6 @@ nav > .navbar > .menu {
   float: left;
 }
 
-.container {
-  color: #000;
-  font-size: 17px;
-  font-weight: 500;
-  text-decoration: none;
-  margin: 0 15px;
-  text-align: center;
-}
-
 footer {
   position: fixed;
   left: 0;
@@ -187,4 +175,90 @@ footer {
   color: #fff;
   font-size: 17px;
   font-weight: 500;
+}
+
+.username {
+  margin: 1em 0 1em 0;
+  margin-right: 20px;
+  max-width: 190px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+
+.username input {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.username label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(100, 100, 100);
+}
+
+.username :is(input:focus, input:valid) ~ label {
+  transform: translateY(-50%) scale(0.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.username :is(input:focus, input:valid) {
+  border-color: #2980b9;
+}
+
+.userid {
+  margin: 1em 0 1em 0;
+  margin-right: 20px;
+  max-width: 190px;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+
+.userid input {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid rgb(200, 200, 200);
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.userid label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(100, 100, 100);
+}
+
+.userid :is(input:focus, input:valid) ~ label {
+  transform: translateY(-50%) scale(0.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  background-color: #fff;
+  font-weight: bold;
+}
+
+.userid :is(input:focus, input:valid) {
+  border-color: #2980b9;
 }

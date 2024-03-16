@@ -1,121 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tax Calculator - Company Tax</title>
-    <link rel="stylesheet" href="CT.css" />
-    <link rel="icon" type="image/x-icon" href="../../../favicon.ico" />
-  </head>
-  <body>
-    <div class="container">
-      <br /><br />
-      <h1>Company Tax Calculator</h1>
-      <br /><br />
-      <label for="income"
-        ><b
-          >Please Enter The Businesses
-          <a
-            target="_blank "
-            href="https://www.ato.gov.au/Business/Income-and-deductions-for-business/Assessable-income/What-income-to-include/"
-          >
-            Assessable Income</a
-          >
-          -
-          <a
-            target="_blank"
-            href=" https://business.gov.au/finance/taxation/tax-deductions"
-            >Deductions</a
-          >
-          below:</b
-        ></label
-      >
-      <br />
-      <br /><br />
-      <input
-        type="number"
-        name="income"
-        id="income"
-        required
-        autocomplete="off"
-      />
-      <br /><br />
-      <button type="submit" onclick="calculateCT()">Continue</button>
 
-      <br /><br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Calculator - Company Tax</title>
+  <link rel="stylesheet" href="CT.css" />
+  <link rel="icon" type="image/x-icon" href="../../../favicon.ico" />
+</head>
 
-      <br /><br /><b><p id="outputTax"></p> </b> <br />
-      <br />
+<body>
+  <div class="container">
+    <br /><br />
+    <h1>Company Tax Calculator</h1>
+    <br /><br />
 
-      <!-- <p> **Assessable income is generally income your business earns. It includes all gross income (before tax) from your everyday business activities (sales etc.) as well as other income that is not part of your everyday business activities, for example capital gains. It does not include GST payable on sales you make, or GST credits <br> <br>
-            **Deductions are amounts you can claim for expenses involved in running your business.</p> -->
+    <br />
+    <br /><br />
+    <div class="ct">
+    <input type="number" name="income" id="income" required autocomplete="off" />
+    <label for="income">Taxable Income</label>
+      </label>
     </div>
+    <br /><br />
+    <button type="submit" onclick="calculateCT()">Continue</button>
 
-    <nav>
-      <div class="navbar">
-        <ul class="left">
-          <li><a href="../../../home.html">Tax Calculator</a></li>
-        </ul>
-        <ul class="menu">
-          <li><a href="../../Individual/Individual.html">Individual</a></li>
-          <li><a href="../Business.html">Business</a></li>
-          <li><a href="../../../Profile/Profile.html">Profile</a></li>
-          <li><a href="../../../open.html">Logout</a></li>
-        </ul>
-      </div>
-    </nav>
+    <br /><br />
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <footer>
-      <div class="footer">
-        <p style="display: inline-block" ; id="CR">
-          &copy; 2024 Tax Calculator
-        </p>
+    <br /><br />
+      <p id="outputTax" style = "font-weight: bold;"></p>
+  
+  </div>
 
-        <a id="pp" href="../../../privacypolicy.html">Privacy Policy</a>
-      </div>
-    </footer>
+  <p>P.S. <a target="_blank" href="https://www.ato.gov.au/Business/Income-and-deductions-for-business/Assessable-income/What-income-to-include/"> Assessable Income</a> - <a target="_blank" href=" https://business.gov.au/finance/taxation/tax-deductions">Deductions</a> = Taxable Income</b></p>
 
-    <script>
-      const arr = [0, 0, 0];
-      let newValue = 0;
+  <nav>
+    <div class="navbar">
+      <ul class="left">
+        <li><a href="../../../home.html">Tax Calculator</a></li>
+      </ul>
+      <ul class="menu">
+        <li><a href="../../Individual/Individual.html">Individual</a></li>
+        <li><a href="../Business.html">Business</a></li>
+        <li><a href="../../../Profile/Profile.html">Profile</a></li>
+        <li><a href="../../../open.html">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      function calculateCT() {
-        let income = document.getElementById("income").value;
+  <br />
 
-        if (income <= 0) {
-          document.getElementById("outputTax").innerHTML =
-            "Please Enter a Value";
-        } else {
-          newValue = income * 0.25;
-          let number = newValue.toLocaleString("en-AU", {
-            style: "currency",
-            currency: "AUD",
-          });
-          document.getElementById("outputTax").innerHTML =
-            "Your Estimated Company Tax is: " + number;
+  <footer>
+    <div class="footer">
+      <p style="display: inline-block" ; id="CR">
+        &copy; 2024 Tax Calculator
+      </p>
 
-          shiftRight();
-        }
+      <a id="pp" href="../../../privacypolicy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    const arr = [0, 0, 0];
+    let newValue = 0;
+
+    function calculateCT() {
+      let income = document.getElementById("income").value;
+
+      if (income <= 0) {
+        document.getElementById("outputTax").innerHTML =
+          "Please Enter a Value";
+      } else {
+        newValue = income * 0.25;
+        let number = newValue.toLocaleString("en-AU", {
+          style: "currency",
+          currency: "AUD",
+        });
+        document.getElementById("outputTax").innerHTML =
+          "Your Estimated Company Tax is: " + number;
+
+        shiftRight();
       }
+    }
 
-      function shiftRight() {
-        arr.pop();
-        arr.unshift(newValue);
-        console.log(arr);
-        localStorage.setItem("ctLast3", JSON.stringify(arr));
-        return arr;
-      }
-    </script>
-  </body>
+    function shiftRight() {
+      arr.pop();
+      arr.unshift(newValue);
+      console.log(arr);
+      localStorage.setItem("ctLast3", JSON.stringify(arr));
+      return arr;
+    }
+  </script>
+</body>
+
 </html>
