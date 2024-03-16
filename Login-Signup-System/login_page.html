@@ -1,61 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Tax Calculator - Login </title>
-  <link rel = "icon" type="image/x-icon" href = "../favicon.ico">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Calculator - Login</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 </head>
 
-<link rel="stylesheet" href="../css/login_page.css">
+<link rel="stylesheet" href="../css/login_page.css" />
 
-<span class="open"> <a href="../open.html">Go Back</a> </span> <br> <br>
+<div class="box">
+  <br /><br /><br />
+  <div class="SignUp">
+    <p>Login</p>
+  </div>
+  <br>
 
- <!-- fields to enter username and passwords to login -->
-<form action = "../home.html" method="post" onsubmit="return validate()">
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+  <!-- fields to enter username and passwords to login -->
+  <form action="../home.html" method="post" onsubmit="return validate()">
+    <div class="username">
+      <input type="text"name="uname" required autocomplete="username" />
+      <label for="uname">Username</label>
+    </div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <div class="password">
+      <input type="password" name="psw" required autocomplete="current-password" />
+      <label for="psw">Password</label>
+    </div>
 
+<br>
     <button type="submit">Login</button>
 
     <script src="../js/login_page.js"></script>
-
-  </div>
+</div>
 </form>
+</div>
 
-
-  <span class="open"> <a href="forgot_password.html">Forgot Your Password?</a> </span> <br> <br>
-
+<span class="open">
+  <a href="forgot_password.html">Forgot Your Password?</a>
+</span>
+<br />
+<br />
 
 <nav>
   <div class="navbar">
-  <ul class="left">
-      <li><a href="../home.html">Tax Calculator</a> </li>
-  </ul>
-  <ul class="menu"> 
-      <li><a href="../Calculator/Individual/Individual.html">Individual</a></li>
+    <ul class="left">
+      <li><a href="../home.html">Tax Calculator</a></li>
+    </ul>
+    <ul class="menu">
+      <li>
+        <a href="../Calculator/Individual/Individual.html">Individual</a>
+      </li>
       <li><a href="../Calculator/Business/Business.html">Business</a></li>
-      <li><a href="../History/history.html">History</a></li>
       <li><a href="../Profile/Profile.html">Profile</a></li>
-      <li><a href="../open.html">Logout</a></li>
-
-  </ul>
-</div>
+      <li><a href="../open.html">Go Back</a></li>
+    </ul>
+  </div>
 </nav>
 
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <footer>
   <div class="footer">
-      <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
+    <p style="display: inline-block" ; id="CR">&copy; 2024 Tax Calculator</p>
 
-      <a id="pp" href="../privacypolicy.html">Privacy Policy</a>
-
+    <a id="pp" href="../privacypolicy.html">Privacy Policy</a>
   </div>
 </footer>
 
-</html> 
+</html>

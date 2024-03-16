@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tax Calculator - History</title>
-    <link rel="stylesheet" href="history.css">
-    <link rel = "icon" type="image/x-icon" href = "../favicon.ico">
-</head>
-<body>
-
-
+    <link rel="stylesheet" href="history.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  </head>
+  <body>
     <div class="container">
-        <br><br><br><h1 style="font-weight: bolder;">Past Tax Calculations</h1> <br>
-        <div class="centering">
-        <h2 style="font-weight: bold;"> Select which type of tax you would like to display the last 3 calculations for</h2> <br>
+      <br /><br /><br />
+      <h1 style="font-weight: bolder">Past Tax Calculations</h1>
+      <br />
+      <div class="centering">
+        <h2 style="font-weight: bold">
+          Select which type of tax you would like to display the last 3
+          calculations for
+        </h2>
+        <br />
         <button onclick="displayIT()">Individual Tax</button>
         <button onclick="displayCT()">Company Tax</button>
         <button onclick="displayPT()">Payroll Tax</button>
-        
+      </div>
 
+      <br /><br />
+      <h2 id="header"></h2>
+      <p id="1"></p>
+      <p id="2"></p>
+      <p id="3"></p>
     </div>
-
-
-        
-        <br><br>
-        <h2 id = "header"></h2>
-        <p id = "1"></p>
-        <p id = "2"></p>
-        <p id = "3"></p>
-    </div>
-    <script src= "history.js"></script>
-
+    <script src="history.js"></script>
 
     <nav>
-        <div class="navbar">
+      <div class="navbar">
         <ul class="left">
-            <li><a href="../home.html">Tax Calculator</a> </li>
+          <li><a href="../home.html">Tax Calculator</a></li>
         </ul>
-        <ul class="menu"> 
-            <li><a href="../Calculator/Individual/Individual.html">Individual</a></li>
-            <li><a href="../Calculator/Business/Business.html">Business</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="../Profile/Profile.html">Profile</a></li>
-            <li><a href="../open.html">Logout</a></li>
-    
+        <ul class="menu">
+          <li>
+            <a href="../Calculator/Individual/Individual.html">Individual</a>
+          </li>
+          <li><a href="../Calculator/Business/Business.html">Business</a></li>
+          <li><a href="../Profile/Profile.html">Profile</a></li>
+          <li><a href="../open.html">Logout</a></li>
         </ul>
-    </div>
+      </div>
     </nav>
-    
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <footer>
-        <div class="footer">
-            <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
-    
-            <a id="pp" href="../privacypolicy.html">Privacy Policy</a>
-    
-        </div>
+      <div class="footer">
+        <p style="display: inline-block" ; id="CR">
+          &copy; 2024 Tax Calculator
+        </p>
+
+        <a id="pp" href="../privacypolicy.html">Privacy Policy</a>
+      </div>
     </footer>
-    
-</body>
-
-
+  </body>
 </html>

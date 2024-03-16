@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <Title> Tax Calculator - Sign Up</Title>
-    <link rel = "icon" type="image/x-icon" href = "../favicon.ico">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Calculator - Sign Up</title>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 </head>
 
-<link rel="stylesheet" href="../css/signup_page.css">
-
-
-<span class="open"> <a href="../open.html">Go Home</a> </span> <br> <br>
+<link rel="stylesheet" href="../css/signup_page.css" />
 
 <body>
+  <br />
+  <br />
+  <br />
 
-    <br>
-    <br>
-    <br>
-
-    <nav>
-        <div class="navbar">
-        <ul class="left">
-            <li><a href="../home.html">Tax Calculator</a> </li>
-        </ul>
-        <ul class="menu"> 
-            <li><a href="../Calculator/Individual/Individual.html">Individual</a></li>
-            <li><a href="../Calculator/Business/Business.html">Business</a></li>
-            <li><a href="../History/history.html">History</a></li>
-            <li><a href="../Profile/Profile.html">Profile</a></li>
-            <li><a href="../open.html">Logout</a></li>
-
-        </ul>
+  <nav>
+    <div class="navbar">
+      <ul class="left">
+        <li><a href="../home.html">Tax Calculator</a></li>
+      </ul>
+      <ul class="menu">
+        <li>
+          <a href="../Calculator/Individual/Individual.html">Individual</a>
+        </li>
+        <li><a href="../Calculator/Business/Business.html">Business</a></li>
+        <li><a href="../Profile/Profile.html">Profile</a></li>
+        <li><a href="../open.html">Go Back</a></li>
+      </ul>
     </div>
-    </nav>
-</div>  
+  </nav>
 
-
+  <div class="box">
     <div class="SignUp">
-
-        <p> Sign Up</p>
-    
+      <p>Sign Up</p>
     </div>
+    <br />
 
-<form action="login_page.html" method="post" onsubmit="return test()">
     <div class="container">
-        <label for="uname" id="Usernme"><b>Username</b></label>
-        <input id="User" type="text" placeholder="Enter Username" name="uname" required autocomplete="off"/><br>
+      <form action="login_page.html" method="post" onsubmit="return test()">
+        <div class="username">
+          <input type="text" required="" autocomplete="off" id="User" name="uname" required autocomplete="username" />
+          <label for="uname">Username</label>
+        </div>
 
-        <label for="psw"><b>Password</b></label>
-        <input id="Pass" type="password" placeholder="Enter Password" name="psw" required autocomplete="off"/><br>
+        <div class="password">
+          <input type="password" required="" autocomplete="off" id="Pass" name="psw" required
+            autocomplete="new-password" />
+          <label for="psw">Password</label>
+        </div>
+        <br />
 
-    
-        <label for="phonenum"><b>Phone Number</b></label>
-        <input id="phone" type="tel" placeholder="041234578" name="phonenum"  maxlength = "10" required autocomplete="tel-national"/><br>
-    
-        <label for="email"><b>Email</b></label>
-        <input id="em-ail" type="email" placeholder="name@gmail.com" name="email" required autocomplete="email" /><br>
-        
+        <div class="email">
+          <input type="email" required="" autocomplete="off" id="em-ail" name="email" required autocomplete="email" />
+          <label for="email">Email</label>
+        </div>
+
+        <div class="phone">
+          <input type="tel" required="" autocomplete="off" id="phone" name="phonenum" required autocomplete="tel"
+            maxlength="10" />
+          <label for="phonenum">Phone Number</label>
+        </div>
+        <br />
+        <br />
+
         <button type="submit">Continue</button>
 
- 
-            <script src="../js/signup_page.js"></script>
-
+        <script src="../js/signup_page.js"></script>
+      </form>
     </div>
-</form>
-</body>
 
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-<footer>
-    <div class="footer">
-        <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
+    <footer>
+      <div class="footer">
+        <p style="display: inline-block" ; id="CR">
+          &copy; 2024 Tax Calculator
+        </p>
 
         <a id="pp" href="../privacypolicy.html">Privacy Policy</a>
-
-    </div>
-</footer>
+      </div>
+    </footer>
+  </div>
+</body>
 
 </html>
-

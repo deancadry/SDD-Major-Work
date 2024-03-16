@@ -1,74 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tax Calculator - Profile</title>
-    <link rel="stylesheet" href="Profile.css">
-    <link rel = "icon" type="image/x-icon" href = "../favicon.ico">
-
-</head>
-<body>
-    
-
+    <link rel="stylesheet" href="Profile.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  </head>
+  <body>
     <nav>
-        <div class="navbar">
+      <div class="navbar">
         <ul class="left">
-            <li><a href="../home.html">Tax Calculator</a> </li>
+          <li><a href="../home.html">Tax Calculator</a></li>
         </ul>
-        <ul class="menu"> 
-            <li><a href="../Calculator/Individual/Individual.html">Individual</a></li>
-            <li><a href="../Calculator/Business/Business.html">Business</a></li>
-            <li><a href="../History/history.html">History</a></li>
-            <li><a href="../Profile/Profile.html">Profile</a></li>
-            <li><a href="../open.html">Logout</a></li>
-    
+        <ul class="menu">
+          <li>
+            <a href="../Calculator/Individual/Individual.html">Individual</a>
+          </li>
+          <li><a href="../Calculator/Business/Business.html">Business</a></li>
+          <li><a href="../Profile/Profile.html">Profile</a></li>
+          <li><a href="../open.html">Logout</a></li>
         </ul>
-    </div>
+      </div>
     </nav>
 
+    <form
+      action="ProfilesSuccess.html"
+      method="post"
+      onsubmit="return validateDetails()"
+    >
+      <div id="preDisplay" class="preDisplay">
+        <br /><br /><br />
+        <h1>Profile</h1>
+        <br /><br /><br />
 
-    <form method="post" onsubmit="return validateDetails()">
-     <div id= "preDisplay" class="preDisplay">
+        <h2>Please Confirm your:</h2>
+        <br />
 
-        <br><br><br><h1>Profile</h1><br><br><br>
+        <label for="uId"><b>User ID</b></label>
+        <input
+          type="number"
+          placeholder="UserID"
+          name="uId"
+          autocomplete="off"
+          id="uId"
+        /><br /><br />
 
-        <h2>Please Confirm your:</h2><br>
+        <label for="uname"><b>Username</b></label>
+        <input
+          type="text"
+          placeholder="Username"
+          name="uname"
+          autocomplete="off"
+          id="uname"
+        /><br />
 
-          <label for="uID"><b>User ID</b></label>
-          <input type="number" placeholder="UserID" name="uID" autocomplete="off"><br><br>
+        <button type="submit">Continue</button>
 
-          <label for = "uname"><b>Username</b></label>
-          <input type="text" placeholder="Username" name="uname" autocomplete="off"><br>
-
-          <button>Continue</button>
-
-
-
-    </div>
+        <script src="Profile.js"></script>
+      </div>
     </form>
 
-
-    <div class="container">
-        <br><br><p id = "uname"> </p>
-
-        <br><br><p id = "pword"> </p>
-
-        <br><br><p id = "phonenumber"> </p>
-
-        <br><br><p id = "email"> </p>
-    </div>
-
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <footer>
-        <div class="footer">
-            <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
-    
-            <a id="pp" href="../../privacypolicy.html">Privacy Policy</a>
-    
-        </div>
+      <div class="footer">
+        <p style="display: inline-block" ; id="CR">
+          &copy; 2024 Tax Calculator
+        </p>
+
+        <a id="pp" href="../../privacypolicy.html">Privacy Policy</a>
+      </div>
     </footer>
-
-
-</body>
+  </body>
 </html>

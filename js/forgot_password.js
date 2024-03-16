@@ -1,56 +1,66 @@
 function validateFP() {
+  alert("getting stored values from the array");
 
-    var storedUsername;
-    var storedPassword;
-    var storedEmail;
-    var storedUID;
-    var inputUsername;
-    var inputPassword
-    var inputPasswordRepeat;
-    var inputEmail;
-    var inputUID;
+  let storedUsername = JSON.parse(localStorage.getItem("username")) || [];
+  alert("storedUname");
+  let storedEmail = JSON.parse(localStorage.getItem("email")) || [];
+  alert("stored email");
 
-    //get stored values from localStorage
-    storedUsername = localStorage.getItem("username");
-    storedPassword = localStorage.getItem("password");
-    storedEmail = localStorage.getItem("email");
-    storedUID = localStorage.getItem("userId");
+  let storedPassword = JSON.parse(localStorage.getItem("password")) || [];
+  alert("stored password");
 
-    // get inputted values from the .html page
-    inputUsername = document.getElementsByName("uname")[0].value;
-    inputEmail = document.getElementsByName("email")[0].value;
-    inputUID = document.getElementsByName("userID")[0].value;
-    inputPassword = document.getElementsByName("pwrd")[0].value;
-    inputPasswordRepeat = document.getElementsByName("confirmPwrd")[0].value;
+  // get inputted values from the forgot password page
 
-    // Check if password meets the criteria
- if (inputPassword.length <= 8 || /\s/.test(inputPassword) || !/\d/.test(inputPassword) || !/[A-Z]/.test(inputPassword)){
-    alert("Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter");
+  let inputUsername = document.getElementById("uname").value;
+  let inputEmail = document.getElementById("email").value;
+  let inputPassword = document.getElementById("pwrd").value;
+  let inputPasswordRepeat = document.getElementById("confirmPwrd").value;
+
+  alert("Check if password meets the criteria");
+  if (
+    inputPassword.length <= 8 ||
+    /\s/.test(inputPassword) ||
+    !/\d/.test(inputPassword) ||
+    !/[A-Z]/.test(inputPassword)
+  ) {
+    alert(
+      "Password must be longer than 8 characters, contain no spaces, have at least one number and one capitalized letter"
+    );
     window.location = "../Login-Signup-System/forgot_password.html"; // Redirect to back to sign up page
-    pwordValid = false;
     return false;
- }
- // Check if the password entered is the same as the one stored
-    if (storedPassword === inputPassword){
-        alert("The password you have entered has been used before, please enter a new password");
-        window.location = "../Login-Signup-System/forgot_password.html"; // Redirect back to forgot_password.html
-        return false;
-    }
+  }
 
-    //validate if all the inputted values are the same as the stored ones, then update password
-    if (storedUsername != inputUsername || storedEmail != inputEmail || storedUID != inputUID || inputPassword != inputPasswordRepeat ) {
-        alert("One or more of your entries didnt match the stored values. Please retry");
-        window.location = "../Login-Signup-System/forgot_password.html";
-        return false;
-    }
-
-    else {
-        localStorage.removeItem("password");
-        localStorage.setItem("Password", inputPassword);
-    alert("Your password has been updated, please sign in again.");
-    window.location = "../Login-Signup-System/login_page.html";
-    return true;
-
-    }
-    
+  alert("checking against array");
+  let i = 0;
+  let user = storedUsername.length;
+  let email = storedEmail.length;
+  while (i < user && i < email) {
+    if (
+      inputUsername == storedUsername[i] &&
+      inputEmail == storedEmail[i] &&
+      inputPassword == inputPasswordRepeat
+    ) {
+      alert("in if loop");
+      storedPassword.splice(i, 1, inputPassword); // Replace the old password with the new one
+      localStorage.setItem("password", JSON.stringify(storedPassword)); // Update the stored password in the localStorage
+      alert("Your password has been updated, please sign in again.");
+      window.location = "../Login-Signup-System/login_page.html";
+      return true;
+    } else i++;
+  }
+  if (inputPassword != inputPasswordRepeat) {
+    alert("Passwords do not match");
+  }
+  if (i == user) {
+    alert("Username not found");
+  }
+  if (i == pass) {
+    alert("Password not found");
+  }
+  if (i == user && i == pass) {
+    alert("Username and Password not found");
+  }
+  alert("else");
+  window.location = "../Login-Signup-System/forgot_password.html";
+  return false;
 }

@@ -1,89 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tax Calculator - Payroll Tax</title>
-    <link rel="stylesheet" href="Payroll.css">
-    <link rel = "icon" type="image/x-icon" href = "../../../favicon.ico">
-
-
-</head>
-<body>
-    
+    <link rel="stylesheet" href="Payroll.css" />
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico" />
+  </head>
+  <body>
     <div class="container">
-        <br><br><h1>Payroll Tax Calculator</h1><br><br>
-        <label for="payroll"><b>Please Enter The Average Total Payroll Paid Each Year:</b></label>
-        <input type="number" name="payroll" id = "payroll" autocomplete="off">
-        <br><br><br><button type="submit" onclick = "calculatePTax()">Continue</button>
+      <br /><br /><br />
+      <h1>Payroll Tax Calculator</h1>
+      <br /><br />
+      <b> Please Enter:</b> <br />
+      <br />
 
-        <br><br><br><br><b><p id = "outputTax"> </p> </b> <br> <br>
+      <div class="payrll">
+        <input type="number" name="payroll" id="payrolls" autocomplete="off" />
+        <label for="payrolls">Average Payroll</label>
+      </div>
+      <br /><br /><br /><button type="submit" onclick="calculatePTax()">
+        Continue
+      </button>
 
+      <br /><br /><br /><br /><b><p id="outputTax"></p> </b> <br />
+      <br />
     </div>
 
     <nav>
-        <div class="navbar">
+      <div class="navbar">
         <ul class="left">
-            <li><a href="../../../home.html">Tax Calculator</a> </li>
+          <li><a href="../../../home.html">Tax Calculator</a></li>
         </ul>
-        <ul class="menu"> 
-            <li><a href="../../Individual/Individual.html">Individual</a></li>
-            <li><a href="../Business.html">Business</a></li>
-            <li><a href="../../../History/history.html">History</a></li>
-            <li><a href="../../../Profile/Profile.html">Profile</a></li>
-            <li><a href="../../../open.html">Logout</a></li>
-    
+        <ul class="menu">
+          <li><a href="../../Individual/Individual.html">Individual</a></li>
+          <li><a href="../Business.html">Business</a></li>
+          <li><a href="../../../Profile/Profile.html">Profile</a></li>
+          <li><a href="../../../open.html">Logout</a></li>
         </ul>
-    </div>
+      </div>
     </nav>
-    
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+    <br />
+    <br />
+    <br />
+
     <footer>
-        <div class="footer">
-            <p style = "display:inline-block";  id="CR"> &copy; 2024 Tax Calculator </p>
-    
-            <a id="pp" href="../../../privacypolicy.html">Privacy Policy</a>
-    
-        </div>
+      <div class="footer">
+        <p style="display: inline-block" ; id="CR">
+          &copy; 2024 Tax Calculator
+        </p>
+
+        <a id="pp" href="../../../privacypolicy.html">Privacy Policy</a>
+      </div>
     </footer>
 
     <script>
-        const arr = [0, 0, 0];
-        let newValue = 0;
+      const arr = [0, 0, 0];
+      let newValue = 0;
 
-        function calculatePTax(){
+      function calculatePTax() {
+        let payroll = document.getElementById("payrolls").value;
 
-        let payroll = document.getElementById("payroll").value;
-
-
-    
-        if (payroll <= 0){
-             document.getElementById("outputTax").innerHTML = "Please Enter a Value Above";
-        } else if (payroll >= 1  &&  payroll <= 1200000) { 
-            newValue = 0;
-            document.getElementById("outputTax").innerHTML = "Your Are In The Tax Free Threshold for Payroll Tax." + "<br>" + "<br>" +  "Less than $1,200,000 of Payroll is Tax Free.";
-            shiftRight();
+        if (payroll <= 0) {
+          document.getElementById("outputTax").innerHTML =
+            "Please Enter a Value Above";
+        } else if (payroll >= 1 && payroll <= 1200000) {
+          newValue = 0;
+          document.getElementById("outputTax").innerHTML =
+            "Your Are In The Tax Free Threshold for Payroll Tax." +
+            "<br>" +
+            "<br>" +
+            "Less than $1,200,000 of Payroll is Tax Free.";
+          shiftRight();
         } else {
-            newValue = (payroll * .0545);
-            let number = newValue.toLocaleString("en-AU", {style:"currency", currency: "AUD"});
-            document.getElementById("outputTax").innerHTML = "Your Are Outside The Tax Free Threshold for Payroll Tax" + "<br>" +  "Your Estimated Payroll Tax is: " + number ;
-            shiftRight();
-        };
-
-        console.log(payroll);
+          newValue = payroll * 0.0545;
+          let number = newValue.toLocaleString("en-AU", {
+            style: "currency",
+            currency: "AUD",
+          });
+          document.getElementById("outputTax").innerHTML =
+            "Your Are Outside The Tax Free Threshold for Payroll Tax" +
+            "<br>" +
+            "Your Estimated Payroll Tax is: " +
+            number;
+          shiftRight();
         }
 
-    function shiftRight() {
+        console.log(payroll);
+      }
+
+      function shiftRight() {
         arr.pop();
         arr.unshift(newValue);
         console.log(arr);
         localStorage.setItem("ptLast3", JSON.stringify(arr));
         return arr;
-    }
+      }
     </script>
-
-
-
-</body>
+  </body>
 </html>
-
