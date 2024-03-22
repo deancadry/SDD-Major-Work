@@ -30,8 +30,9 @@ function calculateITax() {
     shiftRight(newValue);
   } else if (inputIncome >= 45001 && inputIncome < 135000) {
     lowmiddle = (inputIncome - 45000) * 0.3 + 4288;
-    medicareLevy = (inputIncome - 18200) * 0.02;
+    medicareLevy = inputIncome * 0.02;
     newValue = lowmiddle + medicareLevy;
+    console.log(medicareLevy);
     let number = newValue.toLocaleString("en-AU", {
       style: "currency",
       currency: "AUD",
@@ -43,7 +44,7 @@ function calculateITax() {
     shiftRight(newValue);
   } else if (inputIncome >= 135000 && inputIncome < 190001) {
     highmiddle = (inputIncome - 135000) * 0.37 + 31288;
-    medicareLevy = (inputIncome - 18200) * 0.02;
+    medicareLevy = inputIncome * 0.02;
     newValue = highmiddle + medicareLevy;
     let number = newValue.toLocaleString("en-AU", {
       style: "currency",
@@ -57,7 +58,7 @@ function calculateITax() {
     shiftRight(newValue);
   } else if (inputIncome >= 190001) {
     highest = (inputIncome - 190000) * 0.45 + 51638;
-    medicareLevy = (inputIncome - 18200) * 0.02;
+    medicareLevy = inputIncome * 0.02;
     newValue = highest + medicareLevy;
     let number = newValue.toLocaleString("en-AU", {
       style: "currency",
@@ -71,7 +72,7 @@ function calculateITax() {
   }
 }
 
-function shiftRight() {
+function shiftRight(newValue) {
   arr.pop();
   arr.unshift(newValue);
   console.log(arr);
