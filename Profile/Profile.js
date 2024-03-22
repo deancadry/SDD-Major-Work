@@ -23,7 +23,6 @@ function validateDetails() {
     if (inputUsername == username[i] && inputUserID == uID[i]) {
       alert("Login successful");
       sessionStorage.setItem("sUsername", inputUsername);
-      sessionStorage.setItem("sUserId", inputUserID);
       window.location = "ProfilesSuccess.html";
       return true;
     }

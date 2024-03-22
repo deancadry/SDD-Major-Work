@@ -1,5 +1,4 @@
 let user = sessionStorage.getItem("sUsername");
-let id = sessionStorage.getItem("sUserId");
 let pass = JSON.parse(localStorage.getItem("password"));
 
 document.getElementById("hero").innerHTML = "Welcome " + user + "!";
